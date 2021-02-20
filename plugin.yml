@@ -1,0 +1,10 @@
+main: de.lama.banmanager.main.Main
+name: BanManager
+version: 1.0
+author: Lama_Agent
+
+commands:
+  ban:
+  tempban:
+  unban:
+  check:
