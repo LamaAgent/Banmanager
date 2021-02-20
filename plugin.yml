@@ -5,6 +5,10 @@ author: Lama_Agent
 
 commands:
   ban:
+    description: Bans a player permanent.
   tempban:
+    description: Bans a player temporarily.
   unban:
+    description: Unbans a player.
   check:
+    description: Gives some information about a player.

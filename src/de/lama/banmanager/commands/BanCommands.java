@@ -87,18 +87,20 @@ public class BanCommands implements CommandExecutor {
                     for(String allBanned : BanManager.getBannedPlayers()) {
                         sender.sendMessage(plugin.prefix + "§7---------- §6§lBan-Liste §7----------");
                         sender.sendMessage(plugin.prefix + "§e" + allBanned + " §7(Grund: §r" + BanManager.getReason(getUUID(allBanned)) + "§7)");
+                        sender.sendMessage("§7-------------------------------");
                     }
                     return true;
                 }
                 String playername = args[0];
                 sender.sendMessage(plugin.prefix + "§7---------- §6§lBan-Infos §7----------");
                 sender.sendMessage(plugin.prefix + "§eName: §r" + playername);
-                sender.sendMessage(plugin.prefix + "§eGebannt: §r" + (BanManager.isBanned(getUUID(playername)) ? "§aJa" : "Nein"));
+                sender.sendMessage(plugin.prefix + "§eGebannt: §r" + (BanManager.isBanned(getUUID(playername)) ? "§aJa" : "§cNein"));
                 if(BanManager.isBanned(getUUID(playername))) {
                     sender.sendMessage(plugin.prefix + "§eGrund: §r" + BanManager.getReason(getUUID(playername)));
                     sender.sendMessage(plugin.prefix + "§eVerbleibende Zeit: §r" + BanManager.getRemainingTime(getUUID(playername)));
                     sender.sendMessage(plugin.prefix + "§eUUID: §r" + getUUID(playername));
                 }
+                sender.sendMessage("§7-------------------------------");
                 return true;
             } else
                 sender.sendMessage(plugin.prefix + "§c/check (list) <Spieler>");
@@ -123,8 +125,6 @@ public class BanCommands implements CommandExecutor {
     }
 
     private String getUUID(String playername) {
-
-        //noinspection deprecation
         return Bukkit.getOfflinePlayer(playername).getUniqueId().toString();
     }
 }
